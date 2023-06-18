@@ -1,15 +1,15 @@
-import React from 'react';
-import {Routes, Route} from 'react-router-dom';
-import './App.css';
-import Home from './Pages/Home';
-import Tutors from './Pages/Tutors';
-import Tutor from './Pages/Tutor';
-import Register from './Pages/Register';
-import NotFound from './Pages/NotFound';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Pages/Home";
+import Tutors from "./Pages/Tutors";
+import Tutor from "./Pages/Tutor";
+import Register from "./Pages/Register";
+import NotFound from "./Pages/NotFound";
 
-import { useState, useEffect } from 'react';
-import fetchFunction from './api-services';
-import TutorInterface from './custom-types/tutor-interface';
+import { useState, useEffect } from "react";
+import fetchFunction from "./api-services";
+import TutorInterface from "./custom-types/types";
 
 // have a global state for tutors,
 // and when create profile form is submitted,
@@ -17,17 +17,20 @@ import TutorInterface from './custom-types/tutor-interface';
 // refresh when redirecting
 
 function App() {
-
   const [tutors, setTutors] = useState<TutorInterface[]>([]);
 
-  function setTutorsFunc (data: any) {
+  function setTutorsFunc(data: any) {
     setTutors(data);
   }
 
   useEffect(() => {
     (async () => {
       try {
-        await fetchFunction(`http://${process.env.REACT_APP_SERVER_HOST}:${process.env.REACT_APP_SERVER_PORT}`, 'GET', setTutors);
+        await fetchFunction(
+          `http://${process.env.REACT_APP_SERVER_HOST}:${process.env.REACT_APP_SERVER_PORT}`,
+          "GET",
+          setTutors
+        );
       } catch (e) {
         console.log(e);
       }
@@ -40,17 +43,20 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-          <Route path="/tutors">
-              <Route index element={<Tutors tutors={tutors}/>}/>
-              <Route path=":id" element={<Tutor tutors={tutors}/>}/>
-          </Route>
-          <Route path="/register" element={<Register tutorsSetter={setTutorsFunc}/>}/>
-          <Route path='*' element={<NotFound/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/tutors">
+          <Route index element={<Tutors tutors={tutors} />} />
+          <Route path=":id" element={<Tutor tutors={tutors} />} />
+        </Route>
+        <Route
+          path="/register"
+          element={<Register tutorsSetter={setTutorsFunc} />}
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Outlet/> */}
     </>
-    );
+  );
 }
 
 export default App;
