@@ -44,6 +44,7 @@ function Tutor({ tutors }: Props) {
         </nav>
         <div>
           <img
+            className="tutor-profile-pic"
             src={tutor.profileUrl}
             alt={tutor.name && tutor.name.split(" ")[0] + "'s profile picture"}
           />

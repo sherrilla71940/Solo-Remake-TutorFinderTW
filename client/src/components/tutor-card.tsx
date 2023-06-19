@@ -18,7 +18,11 @@ function TutorCard({ tutor, tutorKey }: Props) {
   return (
     // it appears that adding class name to tag remove colors applied to ative effect from navlink
     <NavLink key={tutorKey} className="tutor-card" to={tutorKey}>
-      <img src={tutor.profileUrl} alt={tutor.name + "'s profile picture"} />
+      <img
+        // className="tutor-profile-pic"
+        src={tutor.profileUrl}
+        alt={tutor.name + "'s profile picture"}
+      />
       <div>{tutor.name}</div>
       <div>{tutor.gender}</div>
       <div>{tutor.age}</div>

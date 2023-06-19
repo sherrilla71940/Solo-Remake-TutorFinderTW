@@ -39,7 +39,6 @@ th {
   justify-content: center;
   align-items: center;
   padding: 10%;
-
 }
 
 #home-buttons-container {
@@ -70,26 +69,26 @@ ul li a {
   color: #000;
   margin: 10px;
   text-align: center;
- }
+}
 
- ul li a:hover {
+ul li a:hover {
   color: #00a8ff;
- }
+}
 
- ul li a.active {
+ul li a.active {
   color: #1900ff;
- }
+}
 
- #tutor-cards-wrapper {
+#tutor-cards-wrapper {
   width: 85vw;
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- }
+}
 
- .tutor-card {
+.tutor-card {
   display: flex;
   flex-direction: column;
   padding: 3%;
@@ -99,30 +98,38 @@ ul li a {
   padding: 1%;
   margin: 2%;
   width: 80%;
- }
+}
 
- .tutor-card img {
+.tutor-card img {
   width: 20%;
   height: 30%;
- }
+}
 
- .tutor-card .course {
+.tutor-card .course {
   background-color: #4ea29f;
   color: rgb(255, 255, 255);
   margin: 5px;
   padding: 3px;
- }
+}
 
- .tutor-card .tag {
+.tutor-card .tag {
   background-color: #495cc6;
   color: antiquewhite;
   margin: 5px;
   padding: 3px;
   width: 30%;
-  text-align:center
- }
+  text-align: center;
+}
 
- #tutor-registration-form {
+#tutor-registration-form {
   display: flex;
   flex-direction: column;
- }
+}
+
+.tutor-profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* object-fit: none;
+  object-position: center; */
+}
